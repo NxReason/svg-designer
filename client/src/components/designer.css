@@ -1,7 +1,40 @@
 .designer {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas:
+    'menu    menu'
+    'preview editor';
   background-color: var(--comp-color);
   width: 75%;
   min-height: 500px;
   height: 80%;
+}
+
+.designer-menu {
+  grid-area: menu;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid #000;
+}
+.designer-menu-name-input {
+}
+.icon-save {
+  background-image: url('/icons/icon-save.svg');
+}
+.icon-save:hover {
+  cursor: pointer;
+  background-image: url('/icons/icon-save-dark.svg');
+}
+
+.svg-preview {
+  grid-area: preview;
+}
+
+.svg-editor {
+  grid-area: editor;
+  padding: 1rem;
+  border-left: 1px solid #000;
 }

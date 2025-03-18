@@ -1,12 +1,19 @@
 import express from 'express';
-import { index } from './controllers/index.js';
+import ctrl from './controllers/index.js';
 
 const router = express.Router();
 
-router.get('/', index);
+router.get('/', ctrl.index);
 
-router.get('/about', (req, res) => {
-  res.send('about page');
+// svg routes
+const svgRouter = express.Router();
+svgRouter.get('/', ctrl.svg.all);
+svgRouter.post('/', ctrl.svg.create);
+
+router.use('/api/svg', svgRouter);
+router.use('*', (req, res) => {
+  console.log(req.path);
+  res.send({ msg: 'catch all' });
 });
 
 export default router;

@@ -1,4 +1,3 @@
-import './preview.css';
 import Component from './component';
 
 class Preview implements Component {

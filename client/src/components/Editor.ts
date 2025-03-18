@@ -1,4 +1,3 @@
-import './editor.css';
 import Component from './component';
 import DesignerController from '../DesignerController';
 
@@ -24,6 +23,10 @@ class Editor implements Component {
 
   handleInput() {
     this.controller.onMarkupChange(this.root.textContent ?? '');
+  }
+
+  getMarkup(): string {
+    return this.root.textContent || '';
   }
 }
 

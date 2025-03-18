@@ -1,0 +1,7 @@
+.designer {
+  display: flex;
+  background-color: var(--comp-color);
+  width: 75%;
+  min-height: 500px;
+  height: 80%;
+}

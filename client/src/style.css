@@ -8,6 +8,7 @@
   --bg-color: #333;
   --text-color: #fafafa;
   --comp-color: #222;
+  --hl-color: #3a3af3;
 }
 
 html {
@@ -34,6 +35,19 @@ input[type='text'] {
 input[type='text']:focus {
   outline: none;
   border-bottom: 1px solid var(--text-color);
+}
+
+button {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font: inherit;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  transition: box-shadow 0.2s ease-in;
+}
+button:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 2px var(--hl-color);
 }
 
 .icon {

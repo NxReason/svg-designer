@@ -3,6 +3,7 @@ import Editor from './components/Editor';
 import Preview from './components/Preview';
 import DesignerMenu from './components/DesignerMenu';
 import API from './api';
+import Svg from './Svg';
 
 class DesignerController {
   designer: Designer;
@@ -24,10 +25,8 @@ class DesignerController {
     this.editor.render();
   }
 
-  async init() {
-    // TODO: move to sidebar
-    const data = await API.svg.all();
-    console.log(data);
+  displaySvg(svg: Svg) {
+    this.menu.setName(svg.name);
   }
 
   onMarkupChange(markup: string) {

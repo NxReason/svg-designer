@@ -37,6 +37,10 @@ class DesignerMenu implements Component {
   getName(): string {
     return this.nameInput.value;
   }
+
+  setName(name: string) {
+    this.nameInput.value = name;
+  }
 }
 
 export default DesignerMenu;

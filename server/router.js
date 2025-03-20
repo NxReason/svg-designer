@@ -9,6 +9,8 @@ router.get('/', ctrl.index);
 const svgRouter = express.Router();
 svgRouter.get('/', ctrl.svg.all);
 svgRouter.post('/', ctrl.svg.create);
+svgRouter.put('/:id', ctrl.svg.update);
+svgRouter.delete('/:id', ctrl.svg.remove);
 
 router.use('/api/svg', svgRouter);
 router.use('*', (req, res) => {

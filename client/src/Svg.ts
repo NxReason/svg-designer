@@ -9,7 +9,6 @@ class Svg {
 }
 
 function parseSvg(obj: any): Svg | null {
-  console.log(obj);
   if (obj.name && obj.id) {
     const svg = new Svg(parseInt(obj.id), obj.name);
     return svg;

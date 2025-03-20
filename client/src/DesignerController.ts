@@ -11,6 +11,9 @@ class DesignerController {
   preview: Preview;
   menu: DesignerMenu;
 
+  mode: 'create' | 'update' = 'create';
+  selectedId?: number;
+
   constructor(container: HTMLElement) {
     this.designer = new Designer(container);
     this.designer.render();
@@ -26,6 +29,8 @@ class DesignerController {
   }
 
   displaySvg(svg: Svg) {
+    this.mode = 'update';
+    this.selectedId = svg.id;
     this.menu.setName(svg.name);
   }
 
@@ -34,10 +39,28 @@ class DesignerController {
   }
 
   async onSave() {
+    switch (this.mode) {
+      case 'create':
+        await API.svg.save(this.collectSvgData());
+        break;
+      case 'update':
+        if (!this.selectedId) {
+          console.error(`svg wasn't selected for update`);
+          return;
+        }
+        await API.svg.update(this.selectedId, this.collectSvgData());
+        break;
+      default:
+        console.error(`unhandled case for mode: ${this.mode}`);
+        break;
+    }
+  }
+
+  collectSvgData(): { name: string; markup: string } {
     const name = this.menu.getName();
     const markup = this.editor.getMarkup();
 
-    await API.svg.save({ name, markup });
+    return { name, markup };
   }
 }
 

@@ -13,7 +13,6 @@ class App {
 
   async init() {
     const data = await API.svg.all();
-    console.log(data);
     if (data?.ok && data.svgs) {
       const svgs = data.svgs.map(parseSvg);
       this.svgs = svgs.filter((s: any) => s !== null);

@@ -28,7 +28,24 @@ async function save(data: SvgData) {
     };
     const res = await fetch(path, payload);
     const resData = await res.json();
-    console.log(resData);
+
+    return resData;
+  } catch (err) {
+    console.log(err);
+  }
+}
+async function update(id: number, data: SvgData) {
+  try {
+    const path = `${base}/svg/${id}`;
+    const payload = {
+      method: 'PUT',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    const res = await fetch(path, payload);
+    const resData = await res.json();
 
     return resData;
   } catch (err) {
@@ -37,5 +54,5 @@ async function save(data: SvgData) {
 }
 
 export default {
-  svg: { all, save },
+  svg: { all, save, update },
 };

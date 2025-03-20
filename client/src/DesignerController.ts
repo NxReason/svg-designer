@@ -29,9 +29,12 @@ class DesignerController {
   }
 
   displaySvg(svg: Svg) {
+    console.log(svg);
     this.mode = 'update';
     this.selectedId = svg.id;
     this.menu.setName(svg.name);
+    this.editor.setMarkup(svg.markup);
+    this.preview.update(svg.markup);
   }
 
   onMarkupChange(markup: string) {

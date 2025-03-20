@@ -14,6 +14,7 @@ function onConnection(sequelize) {
         allowNull: false,
         unique: true,
       },
+      markup: DataTypes.TEXT,
     },
     {
       sequelize,

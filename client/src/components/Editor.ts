@@ -28,6 +28,10 @@ class Editor implements Component {
   getMarkup(): string {
     return this.root.textContent || '';
   }
+
+  setMarkup(markup: string) {
+    this.root.textContent = markup;
+  }
 }
 
 export default Editor;

@@ -5,6 +5,7 @@ async function all() {
     const path = `${base}/svg/`;
     const res = await fetch(path);
     const data = await res.json();
+
     return data;
   } catch (err) {
     console.error(err);
